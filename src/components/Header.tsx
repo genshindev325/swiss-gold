@@ -4,11 +4,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import NavbarModal from '@/components/NavbarModal';
 import { formatNumber } from '@/utils/formatNumber';
 
 const Header: React.FC = () => {
   const [price, setPrice] = useState(2671.37);
   const [percentUp, setPercentUp] = useState(0.54);
+  const [viewMenu, setViewMenu] = useState(false);
 
   const handleNetwork = () => {
 
@@ -33,18 +35,19 @@ const Header: React.FC = () => {
         <Image src={'/image/mark.png'} alt='mark' width={156} height={45} />
       </div>
       <div className='flex flex-row space-x-1 sm:space-x-2 lg:space-x-4 ml-auto items-center'>
-        <button type='button' onClick={handleNetwork} className='flex flex-row items-center space-x-2 p-2 text-white text-lg lg:rounded-full lg:border lg:border-white lg:bg-white/20 lg:hover:bg-white/50 lg:duration-500'>
+        <button type='button' onClick={handleNetwork} className='flex flex-row items-center space-x-2 p-2 text-white text-lg lg:rounded-full lg:border lg:border-white lg:bg-white/20 lg:hover:bg-white/50 lg:duration-500 min-w-[65px]'>
           <Image src={'/image/polygon-mark.png'} alt='polygon-mark.png' width={28} height={28} />
           <h2 className='hidden lg:block'>Polygon Network</h2>
           <Image src={'/image/icon-down.png'} alt='icon-down' width={13} height={8} />
         </button>
-        <button type='button' onClick={handleWallet} className='py-2 px-2 sm:px-10 text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01]'>
+        <button type='button' onClick={handleWallet} className='py-2 px-2 sm:px-10 text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[102px]'>
           Connect Wallet
         </button>
         <div className='block md:hidden'>
-          <Image src={'/image/menu.png'} alt='menu' width={18} height={14} />
+          <Image src={'/image/menu.png'} alt='menu' width={18} height={14} className='min-w-[18px]' onClick={() => setViewMenu(true)} />
         </div>
       </div>
+      <NavbarModal isOpen={viewMenu} onClose={() => setViewMenu(false)} />
     </div>
   )
 }
