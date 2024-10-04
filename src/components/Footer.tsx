@@ -52,6 +52,8 @@ const handleCoingecko = () => {
 const handleGithub = () => {
 }
 
+const description = 'SwissGold is the most modern way of gold investing. You can use your $SWCH yokens and receive $SGOLD tokens. Our advanced trading bots trade with your assets and make profit for you. SwissGold is the most modern way of gold investing.'
+
 const Footer: React.FC = () => {
   return (
     <div className='w-full flex flex-col xl:flex-row mt-auto border border-[#EAAD2A] rounded-3xl px-2 sm:px-3 md:px-4 lg:px-5 2xl:px-7 3xl:px-8 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14'>
@@ -66,7 +68,7 @@ const Footer: React.FC = () => {
             <div className='flex flex-col py-4'>
               <div className='ml-8'>
                 <h2 className='text-[#FFD900] text-xl font-semibold'>SwissGold</h2>
-                <h2 className='text-yellow-100 text-sm max-w-[300px]'>SwissGold is the most modern way of gold investing. You can use your $SWCH tokens and receive $SGOLD tokens. Our advanced trading bots trade with your assets and make profit for you. SwissGold is the most modern way of gold investing.</h2>
+                <h2 className='text-yellow-100 text-sm max-w-[300px]'>{description}</h2>
               </div>
             </div>
           </div>
@@ -117,24 +119,24 @@ const Footer: React.FC = () => {
                   <Image src={'/image/social-telegram.png'} alt='social-telegram' width={29} height={29} />
                 </button>
                 <button type='button' onClick={handleInstagram}>
-                  <Image src={'/image/social-instagram.png'} alt='social-instagram' width={29} height={29} />
+                  <Image src={'/image/social-instagram.png'} alt='social-instagram' width={30} height={29} />
                 </button>
                 <button type='button' onClick={handleYoutube}>
-                  <Image src={'/image/social-youtube.png'} alt='social-youtube' width={29} height={29} />
+                  <Image src={'/image/social-youtube.png'} alt='social-youtube' width={30} height={29} />
                 </button>
               </div>
               <div className='flex space-x-8 sm:space-x-16 md:space-x-8 2xl:justify-around'>
                 <button type='button' onClick={handleDiscord}>
-                  <Image src={'/image/social-discord.png'} alt='social-discord' width={29} height={29} />
+                  <Image src={'/image/social-discord.png'} alt='social-discord' width={29} height={30} />
                 </button>
                 <button type='button' onClick={handleCoin}>
-                  <Image src={'/image/social-coin.png'} alt='social-coin' width={29} height={29} />
+                  <Image src={'/image/social-coin.png'} alt='social-coin' width={29} height={30} />
                 </button>
                 <button type='button' onClick={handleCoingecko}>
                   <Image src={'/image/social-coingecko.png'} alt='social-coingecko' width={29} height={29} />
                 </button>
                 <button type='button' onClick={handleGithub}>
-                  <Image src={'/image/social-github.png'} alt='social-github' width={29} height={29} />
+                  <Image src={'/image/social-github.png'} alt='social-github' width={30} height={29} />
                 </button>
               </div>
             </div>
