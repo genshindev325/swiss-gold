@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import MainPanelWrapper from '@/components/MainPanelWrapper'
 import Navbar from '@/components/Navbar';
 import Header from '@/components/Header';
@@ -13,6 +14,13 @@ const text1 = 'SwissGold is the most modern way of gold investing. You can use y
 const text2 = 'Gold can be a hedge against inflation because its price tends to rise when the cost of living increases. Investors can periodically see gold prices soar and the stock market plunge during high-inflation years.';
 
 const Home: React.FC = () => {
+  const router = useRouter();
+  
+  const handleSwapButton = () => {
+    router.push('/pages/swap');
+    sessionStorage.setItem('selectedMenu', 'swap');
+  }
+
   return (
     <div>
       <div className="w-full min-h-screen flex flex-row md:space-x-8 bg-[#0e0e0e] bg-cover bg-no-repeat bg-[url('/image/bg.png')] px-0 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 3xl:px-36 py-0 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 3xl:py-32">
@@ -39,7 +47,9 @@ const Home: React.FC = () => {
               <div className='hidden lg:block'>
                 <div className='flex flex-col'>
                   <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} />
-                  <Image src={'/image/button-1.png'} alt='ad-main' width={533} height={224} />
+                  <div onClick={handleSwapButton} className='hover:cursor-pointer'>
+                    <Image src={'/image/button-1.png'} alt='ad-main' width={533} height={224} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -124,7 +134,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div className='flex flex-col items-center'>
-                <div>
+                <div onClick={handleSwapButton} className='hover:cursor-pointer'>
                   <Image src={'/image/button-2.png'} alt='button-2' width={641} height={270} />
                 </div>
               </div>

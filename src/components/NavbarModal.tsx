@@ -48,7 +48,7 @@ const NavbarModal: React.FC<INavbarModal> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed flex top-32 right-14 bg-black bg-opacity-70 z-20">
+    <div className="fixed flex top-16 right-6 bg-black bg-opacity-70 z-50">
     <div ref={modalRef} className="w-[222px] h-[440px] border border-[#EAAD2A] rounded-3xl bg-[#161616] flex flex-col items-start justify-start py-10 px-8">
       <Image src={'/image/mark.png'} alt='swiss-gold' width={155} height={45} className='pb-4' priority />
       <Link href={'/pages/home'}>

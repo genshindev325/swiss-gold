@@ -23,10 +23,12 @@ const Swap: React.FC = () => {
         <MainPanelWrapper>
           <Header />
           {/* container */}
-          <div className='flex flex-col w-full p-0 sm:p-5 md:p-6 justify-center'>
+          <div className='flex flex-col w-full p-4 sm:p-5 md:p-6 justify-center'>
             {/* title */}
             <div className='flex flex-row mb-4'>
-              <Image src={'/image/swap-title-swap.png'} alt='nav-home' width={82} height={82} />
+              <div>
+                <Image src={'/image/swap-title-swap.png'} alt='nav-home' width={82} height={82} />
+              </div>
               <div className='pl-4'>
                 <div className='text-[#FCD80A] text-[30px] md:text-[34px] leading-[26.88px] font-[700]'>
                   Swap GOLD
@@ -38,17 +40,19 @@ const Swap: React.FC = () => {
             </div>
             {/* body */}
             <div className='relative mb-8'>
-              <div className='relative flex flex-col justify-center px-2 z-50'>
+              <div className='relative flex flex-col justify-center px-2 z-20'>
                 <SwapPanel/>
-                <div className='block md:hidden flex justify-center -mt-[20px]'>
-                  <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={312} height={286} />
+                <div className='block md:hidden'>
+                  <div className='flex justify-center -mt-[20px]'>
+                    <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
+                  </div>
                 </div>
               </div>
               <div className='hidden md:flex flex-row absolute top-0 left-0 w-full h-full'>
-                <div className='w-50 content-end'>
+                <div className='content-end'>
                   <Image src={'/image/golds.png'} alt='nav-home' width={380} height={229} />
                 </div>
-                <div className='ml-auto w-50'>
+                <div className='ml-auto'>
                   <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
                 </div>
               </div>

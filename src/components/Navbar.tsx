@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     if (storedMenu) {
       setSelectedMenu(storedMenu);
     }
-  }, []);
+  }, [sessionStorage.getItem('selectedMenu')]);
 
   const handleMenuClick = (menu: string) => {
     sessionStorage.setItem('previewMenu', selectedMenu);

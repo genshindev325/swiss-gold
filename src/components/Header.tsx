@@ -45,7 +45,7 @@ const Header: React.FC = () => {
           <h2 className='hidden lg:block'>Polygon Network</h2>
           <Image src={'/image/icon-down.png'} alt='icon-down' width={13} height={8} />
         </button>
-        <button type='button' onClick={handleWallet} className='py-2 px-2 sm:px-10 text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[102px]'>
+        <button type='button' onClick={handleWallet} className='py-2 px-2 sm:px-10 text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[103px]'>
           Connect Wallet
         </button>
         <div className='block md:hidden'>

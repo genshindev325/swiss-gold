@@ -17,7 +17,7 @@ const swapRatio = 20.56;
 
 const SwapPanel: React.FC = () => {
   return (
-    <div className='border-[2px] border-[#BCAE43B0] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[20px] md:rounded-[32px] px-[15px] md:px-[25px] py-[11px] md:py-[33px] text-[#FFFFFF]'>
+    <div className='w-full mx-2 sm:w-4/5 xl:w-1/2 xl:min-w-[700px] border-[2px] border-[#BCAE43B0] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[20px] md:rounded-[32px] px-[15px] md:px-[25px] py-[11px] md:py-[33px] text-white sm:mx-auto'>
       <div className='text-[20px] md:text-[36px] leading-[26px] md:leading-[44px] text-center font-[800] mb-[30px]'>
         Buy <span className='text-[#EECB1C]'>$SGOLD</span> Token
       </div>
@@ -42,7 +42,7 @@ const SwapPanel: React.FC = () => {
             <FaChevronDown className='ml-2 stroke-4' />
           </div>
         </div>
-        <div className='flex text-[12px] md:text-[18px] leading-[10px] md:leading-[14px] gap-1 md:gap-2 font-[400]'>
+        <div className='flex text-xs sm:text-sm md:text-[18px] leading-[10px] md:leading-[14px] gap-1 md:gap-2 font-[400]'>
           <div className={percentToPayStyle}>
             %10
           </div>
