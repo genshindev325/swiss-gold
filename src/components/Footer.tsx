@@ -2,7 +2,7 @@
 
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 // links
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
               <button className='flex flex-row text-start my-4' onClick={handleStaking}>
                 <h2 className={`hover:text-[#FCD80A] text-yellow-100 text-sm duration-300`}>Staking</h2>
               </button>
-              <button className='flex flex-row text-start my-4' onClick={handleTerms}>
+              <button className='flex flex-row text-start my-4' onClick={handlePrivacy}>
                 <h2 className={`hover:text-[#FCD80A] text-yellow-100 text-sm duration-300`}>Privacy Policy</h2>
               </button>
             </div>

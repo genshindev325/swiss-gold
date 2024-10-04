@@ -12,6 +12,11 @@ const Header: React.FC = () => {
   const [percentUp, setPercentUp] = useState(0.54);
   const [viewMenu, setViewMenu] = useState(false);
 
+  useEffect(() => {
+    setPrice(2671.37);
+    setPercentUp(0.54);
+  }, [])
+
   const handleNetwork = () => {
 
   };
