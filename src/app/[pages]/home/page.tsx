@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import MainPanelWrapper from '@/components/MainPanelWrapper'
 import Navbar from '@/components/Navbar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -14,13 +15,13 @@ const text2 = 'Gold can be a hedge against inflation because its price tends to 
 const Home: React.FC = () => {
   return (
     <div>
-      <div className="w-full min-h-screen flex flex-row md:space-x-8 bg-[#0e0e0e] bg-cover bg-no-repeat bg-[url('/image/bg.png')] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 3xl:px-36 py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 3xl:py-32">
+      <div className="w-full min-h-screen flex flex-row md:space-x-8 bg-[#0e0e0e] bg-cover bg-no-repeat bg-[url('/image/bg.png')] px-0 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 3xl:px-36 py-0 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 3xl:py-32">
         {/* Navbar */}
         <div className='hidden md:block'>
           <Navbar />
         </div>
         {/* Container */}
-        <div className='w-full min-h-screen border border-[#EAAD2A] rounded-3xl bg-[#161616] flex flex-col items-start justify-start pt-4 sm:pt-5 md:pt-6 lg:pt-8 xl:pt-10 2xl:pt-12 3xl:pt-14'>
+        <MainPanelWrapper>
           <Header />
           {/* container */}
           <div className='flex flex-col w-full p-4 sm:p-5 md:p-6 items-center justify-center'>
@@ -134,7 +135,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <Footer />
-        </div>
+        </MainPanelWrapper>
       </div>
     </div>
   )
