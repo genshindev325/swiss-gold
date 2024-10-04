@@ -30,7 +30,7 @@ const Home: React.FC = () => {
                 <div className='block lg:hidden'>
                   <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} />
                 </div>
-                <Image src={'/image/logo.png'} alt='logo' width={614} height={565} />
+                <Image src={'/image/logo.png'} alt='logo' width={614} height={565} priority />
                 <div className='block lg:hidden'>
                   <Image src={'/image/button-1.png'} alt='ad-main' width={533} height={224} />
                 </div>
