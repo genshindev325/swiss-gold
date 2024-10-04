@@ -34,9 +34,9 @@ const SwapPanel: React.FC = () => {
           <div className='text-[24px] md:text-[36px] leading-[20px] md:leading-[28px] font-[500] mr-auto'>
             {amountToReceive}
           </div>
-          <div className='flex flex-row rounded-[20px] md:rounded-[32px] border-[1px] border-[#BCAE43B0] bg-[#F0DC9B26] items-center px-[20px] py-[10px]'>
+          <div className='flex flex-row rounded-[20px] md:rounded-[32px] border border-[#BCAE43B0] bg-[#F0DC9B26] items-center px-2 sm:px-[20px] py-1 sm:py-[10px]'>
             <Image src={'/image/tokens/swch-small.png'} alt='nav-home' width={31} height={31} />
-            <div className='text-[10px] md:text-[18px] leading-[8px] md:leading-[14px] font-[500] ml-2'>
+            <div className='text-sm md:text-md lg:text-lg font-semibold ml-2'>
               {'SWCH'}
             </div>
             <FaChevronDown className='ml-2 stroke-4' />
@@ -78,9 +78,9 @@ const SwapPanel: React.FC = () => {
           <div className='text-[24px] md:text-[36px] leading-[20px] md:leading-[28px] font-[500] mr-auto'>
             {amountToPay}
           </div>
-          <div className='flex flex-row rounded-[20px] md:rounded-[32px] border-[1px] border-[#BCAE43B0] bg-[#F0DC9B26] items-center px-[20px] py-[10px]'>
+          <div className='flex flex-row rounded-[20px] md:rounded-[32px] border-[1px] border-[#BCAE43B0] bg-[#F0DC9B26] items-center px-2 sm:px-[20px] py-1 sm:py-[10px]'>
             <Image src={'/image/tokens/sgold-small.png'} alt='nav-home' width={31} height={31} />
-            <div className='text-[10px] md:text-[18px] leading-[8px] md:leading-[14px] font-[500] ml-2'>
+            <div className='text-sm md:text-md lg:text-lg font-semibold ml-2'>
               {'SGOLD'}
             </div>
             <FaChevronDown className='ml-2' />
@@ -90,7 +90,7 @@ const SwapPanel: React.FC = () => {
           Min.receive: {minReceive}
         </div>
       </div>
-      <div className='text-[14px] md:text-[24px] leading-[26px] md:leading-[44px] font-[600] text-[#FFD900] text-center py-[10px]'>
+      <div className='text-sm md:text-md lg:text-lg font-semibold text-[#FFD900] text-center py-[10px]'>
         {1} {'SWCH'} = {swapRatio} {'SGOLD'}
       </div>
       <div>

@@ -60,7 +60,7 @@ const Home: React.FC = () => {
                 <h2 className='text-yellow-100 text-sm max-w-[500px] pl-20 pr-2'>{text1}</h2>
               </div>
               <div className='flex flex-col'>
-                <Image src={'/image/image-1.png'} alt='image-1' width={538} height={487} />
+                <Image src={'/image/image-1.png'} alt='image-1' width={538} height={421} />
               </div>
             </div>
             {/* division */}
