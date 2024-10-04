@@ -4,7 +4,7 @@
 
 import Image from "next/image";
 import { FaArrowDown, FaChevronDown } from "react-icons/fa6";
-const percentToPayStyle = 'rounded-[20px] md:rounded-[32px] border-[1px] border-[#BCAE43B0] bg-[#F0DC9B26] px-[10px] md:px-[35px] py-[6px] md:py-[12px]';
+const percentToPayStyle = 'rounded-[20px] md:rounded-[32px] border border-[#BCAE43B0] bg-[#F0DC9B26] px-1 sm:px-2 md:px-3 lg:px-5 xl:px-6 py-0 sm:py-1';
 
 const amountToPay = 1535;
 const tokenBalanceToPay = 2500;
@@ -17,12 +17,12 @@ const swapRatio = 20.56;
 
 const SwapPanel: React.FC = () => {
   return (
-    <div className='w-full mx-2 sm:w-4/5 xl:w-1/2 xl:min-w-[700px] border-[2px] border-[#BCAE43B0] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[20px] md:rounded-[32px] px-[15px] md:px-[25px] py-[11px] md:py-[33px] text-white sm:mx-auto'>
+    <div className='w-full lg:w-4/5 xl:w-1/2 lg:min-w-[600px] border-[2px] border-[#BCAE43B0] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[20px] md:rounded-[32px] px-[15px] md:px-[25px] py-[11px] md:py-[33px] text-white mx-auto'>
       <div className='text-[20px] md:text-[36px] leading-[26px] md:leading-[44px] text-center font-[800] mb-[30px]'>
         Buy <span className='text-[#EECB1C]'>$SGOLD</span> Token
       </div>
       <div className='w-full rounded-[20px] md:rounded-[32px] bg-[#F0DC9B26] bg-opacity-10 p-[12px] md:p-[24px]'>
-        <div className='flex text-[12px] md:text-[18px] leading-[10px] md:leading-[14px] font-[500] '>
+        <div className='flex text-xs sm:text-sm md:text-md lg:text-lg'>
           <div className='mr-auto'>
             You pay
           </div>
@@ -42,7 +42,7 @@ const SwapPanel: React.FC = () => {
             <FaChevronDown className='ml-2 stroke-4' />
           </div>
         </div>
-        <div className='flex text-xs sm:text-sm md:text-[18px] leading-[10px] md:leading-[14px] gap-1 md:gap-2 font-[400]'>
+        <div className='flex flex-row lg:justify-center justify-evenly lg:space-x-4 xl:space-x-6 text-xs sm:text-sm md:text-md lg:text-lg font-semibold'>
           <div className={percentToPayStyle}>
             %10
           </div>
@@ -66,7 +66,7 @@ const SwapPanel: React.FC = () => {
         </div>
       </div>
       <div className='w-full rounded-[20px] md:rounded-[32px] bg-[#F0DC9B26] bg-opacity-10 p-[12px] md:p-[24px]'>
-        <div className='flex text-[10px] md:text-[18px] leading-[8px] md:leading-[14px] font-[500]'>
+        <div className='flex text-xs sm:text-sm md:text-md lg:text-lg'>
           <div className='mr-auto'>
             You pay
           </div>

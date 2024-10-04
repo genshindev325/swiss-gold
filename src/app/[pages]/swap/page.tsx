@@ -23,7 +23,7 @@ const Swap: React.FC = () => {
         <MainPanelWrapper>
           <Header />
           {/* container */}
-          <div className='flex flex-col w-full p-4 sm:p-5 md:p-6 justify-center'>
+          <div className='flex flex-col w-full p-2 sm:p-3 md:p-4 lg:p-6 justify-center'>
             {/* title */}
             <div className='flex flex-row mb-4'>
               <div>
@@ -42,13 +42,13 @@ const Swap: React.FC = () => {
             <div className='relative mb-8'>
               <div className='relative flex flex-col justify-center px-2 z-20'>
                 <SwapPanel/>
-                <div className='block md:hidden'>
+                <div className='block lg:hidden'>
                   <div className='flex justify-center -mt-[20px]'>
                     <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
                   </div>
                 </div>
               </div>
-              <div className='hidden md:flex flex-row absolute top-0 left-0 w-full h-full'>
+              <div className='hidden lg:flex flex-row absolute top-0 left-0 w-full h-full'>
                 <div className='content-end'>
                   <Image src={'/image/golds.png'} alt='nav-home' width={380} height={229} />
                 </div>
