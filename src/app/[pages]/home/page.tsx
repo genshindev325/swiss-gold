@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             </div>
             {/* division */}
             <div className='py-4'>
-              <Image src={'/image/div.png'} alt='div' width={959} height={40} />
+              <Image src={'/image/div.png'} alt='div' width={959} height={39} />
             </div>
             {/* graph image */}
             <div className='flex flex-col-reverse lg:flex-row py-4'>
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             </div>
             {/* division */}
             <div className='py-4'>
-              <Image src={'/image/div.png'} alt='div' width={959} height={40} />
+              <Image src={'/image/div.png'} alt='div' width={959} height={39} />
             </div>
             {/* SwissGold */}
             <div className='flex flex-col py-4'>
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
             </div>
             {/* division */}
             <div className='py-4'>
-              <Image src={'/image/div.png'} alt='div' width={959} height={40} />
+              <Image src={'/image/div.png'} alt='div' width={959} height={39} />
             </div>
           </div>
           <Footer />

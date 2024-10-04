@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
         <div className='flex flex-col items-center xl:flex-row'>
           <Image src={'/image/logo-small.png'} alt='logo-small' width={246} height={227} />
           <div className='block xl:hidden'>
-            <Image src={'/image/div.png'} alt='div' width={959} height={40} />
+            <Image src={'/image/div.png'} alt='div' width={959} height={39} />
           </div>
           {/* description */}
           <div className='hidden 2xl:block'>
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
           </div>
           {/* division */}
           <div className='block md:hidden'>
-            <Image src={'/image/div.png'} alt='div' width={959} height={40} />
+            <Image src={'/image/div.png'} alt='div' width={959} height={39} />
           </div>
           {/* social */}
           <div className='m-auto'>
