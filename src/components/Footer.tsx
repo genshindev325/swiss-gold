@@ -56,7 +56,7 @@ const description = 'SwissGold is the most modern way of gold investing. You can
 
 const Footer: React.FC = () => {
   return (
-    <div className='w-full flex flex-col xl:flex-row mt-auto border border-[#EAAD2A] rounded-3xl px-2 sm:px-3 md:px-4 lg:px-5 2xl:px-7 3xl:px-8 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14'>
+    <div className='w-full flex flex-col xl:flex-row mt-auto border-x-0 border-b-0 border-t-2 sm:border border-[#EAAD2A] rounded-t-3xl rounded-b-none sm:rounded-3xl px-2 sm:px-3 md:px-4 lg:px-5 2xl:px-7 3xl:px-8 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14'>
       <div className='justify-center md:flex-1 2xl:mr-20 flex'>
         <div className='flex flex-col items-center xl:flex-row'>
           <Image src={'/image/logo-small.png'} alt='logo-small' width={246} height={227} />
