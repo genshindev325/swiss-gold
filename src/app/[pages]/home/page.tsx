@@ -14,7 +14,7 @@ const text2 = 'Gold can be a hedge against inflation because its price tends to 
 const Home: React.FC = () => {
   return (
     <div>
-      <div className="w-full min-h-screen flex flex-row space-x-8 bg-[#0e0e0e] bg-cover bg-no-repeat bg-[url('/image/bg.png')] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 3xl:px-36 py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 3xl:py-32">
+      <div className="w-full min-h-screen flex flex-row md:space-x-8 bg-[#0e0e0e] bg-cover bg-no-repeat bg-[url('/image/bg.png')] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 3xl:px-36 py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 3xl:py-32">
         {/* Navbar */}
         <div className='hidden md:block'>
           <Navbar />
