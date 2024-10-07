@@ -6,7 +6,7 @@ import { useWallet } from '@/context/WalletContext';
 import { abbrAddress } from '@/utils/utils';
 
 const ConnectWalletButton = () => {
-    const { connectWallet, disconnectWallet, address } = useWallet();
+    const { connectWallet, disconnectWallet, account } = useWallet();
 
     // Create state for window width
     const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
@@ -28,7 +28,7 @@ const ConnectWalletButton = () => {
     const style = "h-full px-2 sm:px-10 py-1 sm:py-2  text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[103px]";
     return (
         <>
-            {!address && <button
+            {!account && <button
                 onClick={connectWallet}
                 // disabled={loading}
                 className={style}
@@ -37,12 +37,12 @@ const ConnectWalletButton = () => {
                 { buttonText }
             </button>
             }
-            {address && <button
+            {account && <button
                 onClick={disconnectWallet}
                 // disabled={loading}
                 className={style}
             >
-                {abbrAddress(address)}
+                {abbrAddress(account)}
             </button>
             }
         </>

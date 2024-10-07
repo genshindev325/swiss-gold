@@ -13,7 +13,7 @@ declare global {
 interface WalletContextType {
   provider?: ethers.BrowserProvider;
   signer?: ethers.Signer;
-  address?: string;
+  account?: string;
   connectWallet: () => Promise<void>;
   disconnectWallet: () => void;
 }
@@ -23,7 +23,7 @@ const WalletContext = createContext<WalletContextType | undefined>(undefined);
 export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [provider, setProvider] = useState<ethers.BrowserProvider | undefined>(undefined);
   const [signer, setSigner] = useState<ethers.Signer | undefined>(undefined);
-  const [address, setAddress] = useState<string | undefined>(undefined);
+  const [account, setAccount] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.ethereum) {
@@ -32,9 +32,9 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
       window.ethereum.on('accountsChanged', (accounts: string[]) => {
         if (accounts.length > 0) {
-          setAddress(accounts[0]);
+          setAccount(accounts[0]);
         } else {
-          setAddress(undefined);
+          setAccount(undefined);
           setSigner(undefined);
         }
       });
@@ -57,7 +57,7 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       const userAddress = await newSigner.getAddress();
 
       setSigner(newSigner);
-      setAddress(userAddress);
+      setAccount(userAddress);
     } catch (error) {
       console.error('Failed to connect wallet:', error);
     }
@@ -65,11 +65,11 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   const disconnectWallet = () => {
     setSigner(undefined);
-    setAddress(undefined);
+    setAccount(undefined);
   };
 
   return (
-    <WalletContext.Provider value={{ provider, signer, address, connectWallet, disconnectWallet }}>
+    <WalletContext.Provider value={{ provider, signer, account, connectWallet, disconnectWallet }}>
       {children}
     </WalletContext.Provider>
   );

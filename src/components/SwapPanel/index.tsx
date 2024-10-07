@@ -18,6 +18,7 @@ const minReceive = 3496.30;
 
 const swapRatio = 20.56;
 
+
 const SwapPanel: React.FC = () => {
   const [fromValue, setFromValue] = useState(0.00);
   const [toValue, setToValue] = useState(0.00);
@@ -49,6 +50,62 @@ const SwapPanel: React.FC = () => {
     //   setFromValue('');
     // }
   };
+
+  const handleSwap = async () => {
+    // try {
+    //   const provider = await getProvider();
+    //   const signer = await provider.getSigner();
+    //   const swchAddr = await getTokenContractAddress("SWCH");
+    //   const swchTokenContract = getErc20TokenContract(swchAddr, signer);
+    //   const collectorContract = getSwissGoldContract(signer);
+
+    //   if(!fromValue || !swchPriceInUSD || !goldPriceInUSD){
+    //     console.log("Undefined prices");
+    //     return;
+    //   }
+    //   const goldAmountToReceive = Number(fromValue) * swchPriceInUSD / goldPriceInUSD;
+
+    //   if(collectorContract != undefined){
+    //     const swchDecimals = await swchTokenContract.decimals();
+    //     const swchAmountToDeposit = ethers.parseUnits(fromValue, swchDecimals);
+
+    //     const txApprove = await swchTokenContract.approve(await collectorContract.getAddress(), swchAmountToDeposit);
+    //     await txApprove.wait();
+    //     toast.success("Approved successfully");
+    //     // console.log(txApprove);
+
+    //     const txDeposit = await collectorContract.depositSWCH(swchAmountToDeposit);
+    //     await txDeposit.wait();
+    //     toast.success("Deposited successfully");
+
+        
+    //     // Store deposit info to the database...
+    //     const response = await fetch(`/api/users/deposit`, {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify(
+    //         {
+    //           wallet: signer.address,
+    //           amount: fromValue,
+    //           amountGold: goldAmountToReceive,
+    //         }),
+    //     });
+    
+    //     if (response.status === 201) {
+    //       toast.success("Deposit success.");
+    //     } else {
+          
+    //     }
+    //   }else{
+    //     toast.error("Failed to connect SwissChessGold contract");
+    //     console.log("Failed to connect SwissCheeseGold contract");
+    //   }
+    // } catch (error) {
+    //   const decodedError: DecodedError = await errorDecoder.decode(error);
+    //   console.log(`Revert reason: ${decodedError.reason}`)
+    //   toast.error(decodedError.reason);
+    // }
+  }
   return (
     <div className='w-full lg:w-4/5 xl:w-1/2 lg:min-w-[600px] border-[2px] border-[#BCAE43B0] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[20px] md:rounded-[32px] px-[15px] md:px-[25px] py-[11px] md:py-[33px] text-white mx-auto'>
       <div className='text-[20px] md:text-[36px] leading-[26px] md:leading-[44px] text-center font-[800] mb-[30px]'>
@@ -138,7 +195,7 @@ const SwapPanel: React.FC = () => {
         {/* <div className='w-full bg-[#FCD80A] px-[20px] py-[12px] rounded-[58px] text-center text-[#000000] text-[18px] font-[600] cursor-pointer'>
           Connect Wallet
         </div> */}
-        <SwapButton />
+        <SwapButton swapHandler={handleSwap} isReadyToSwap={fromValue > 0} />
       </div>
     </div>
   )
