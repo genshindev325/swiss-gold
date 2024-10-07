@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             <div className='flex flex-row'>
               <div className='flex flex-col'>
                 <div className='block lg:hidden'>
-                  <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} />
+                  <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} className='px-4 pt-8'/>
                 </div>
                 <Image src={'/image/logo.png'} alt='logo' width={614} height={565} priority />
                 <div className='block lg:hidden'>
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
               </div>
               <div className='hidden lg:block'>
                 <div className='flex flex-col'>
-                  <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} />
+                  <Image src={'/image/ad-main.png'} alt='ad-main' width={747} height={368} className='pt-8'/>
                   <div onClick={handleSwapButton} className='hover:cursor-pointer'>
                     <Image src={'/image/button-1.png'} alt='ad-main' width={533} height={224} />
                   </div>
