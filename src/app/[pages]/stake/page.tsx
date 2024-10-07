@@ -4,13 +4,16 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { FaCaretUp, FaCaretDown } from 'react-icons/fa6';
+
 import MainPanelWrapper from '@/components/MainPanelWrapper'
 import Navbar from '@/components/Navbar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StakePanel from '@/components/StakePanel';
 import GraphPanel from '@/components/GraphPanel';
-import { formatNumber } from '@/utils/formatNumber';
+import { formatNumber } from '@/utils/utils';
+import { getTokenPriceInUsdWithChangePercentage } from '@/utils/tokens';
 
 interface IGraphPanel {
   positionNumber: number;
@@ -23,8 +26,21 @@ interface IGraphPanel {
 const Stake: React.FC = () => {
   const [tab, setTab] = useState<'new' | 'current'>('new');
   const [graphData, setGraphData] = useState<IGraphPanel[]>([]);
-  const price = 2671.37;
-  const percentUp = 0.54;
+  const [goldPrice, setGoldPrice] = useState(0.00);
+  const [goldPriceChangePercent, setGoldPriceChangePercent] = useState(0.00);
+  useEffect(() => {
+    const fetchPrice = async () =>{
+      try {
+        const tokenId = 'tether-gold';
+        const {tokenPrice, tokenPriceChangePercent} = await getTokenPriceInUsdWithChangePercentage(tokenId);
+        setGoldPrice(tokenPrice || 0);
+        setGoldPriceChangePercent(tokenPriceChangePercent);
+      } catch (error) {
+        console.log("Failed to get gold price. Error :" + error);
+      }
+    }
+    fetchPrice();
+  }, []);
 
   useEffect(() => {
     // will be fetched from the server...
@@ -73,7 +89,7 @@ const Stake: React.FC = () => {
           {/* container */}
           <div className='flex flex-col w-full p-4 sm:p-5 md:p-6 justify-center'>
             {/* title */}
-            <div className='flex flex-row justify-start mb-4'>
+            <div className='flex flex-row justify-start mb-8 md:mb-16 mt-8 md:mt-0'>
               <div className='mt-1'>
                 <Image src={'/image/stake-logo.png'} alt='stake-logo' width={82} height={82} />
               </div>
@@ -87,7 +103,7 @@ const Stake: React.FC = () => {
               </div>
             </div>
             {/* tab */}
-            <div className='flex flex-row justify-center px-2 space-x-4 md:space-x-6 pt-16 md:pt-24 pb-4'>
+            <div className='flex flex-row justify-center px-2 space-x-4 md:space-x-6 pb-4'>
               <button
                 type='button'
                 className={`${tab === 'new' ? 'bg-[#FFD900] text-black rounded-full' : 'text-[#FFD900] bg-transparent'} rounded-full text-md font-bold px-4 py-2 duration-300 min-w-[135px]`}
@@ -130,16 +146,25 @@ const Stake: React.FC = () => {
                     <GraphPanel key={index} positionNumber={data.positionNumber} percentUp={data.percentUp} cost={data.cost} current={data.current} PNL={data.PNL} />
                   ))}
                 </div>
+                {/* gold price */}
+                <div className='flex flex-row py-4 justify-center'>
+                  <h2 className='text-[#FCD80A] text-xl font-semibold'>Gold = ${formatNumber(goldPrice)}</h2>
+                  {
+                    goldPriceChangePercent >= 0 ? 
+                    (<div className='flex text-[#00D320] my-auto mx-2 items-center'>
+                      <FaCaretUp />
+                      <h2 className='text-xl'>%{formatNumber(goldPriceChangePercent)}</h2>
+                    </div> )
+                    :
+                    (<div className='flex text-[#FF0000] my-auto mx-2 items-center'>
+                      <FaCaretDown />
+                      <h2 className='text-xl'>%{formatNumber(-goldPriceChangePercent)}</h2>
+                    </div> )
+                  }
+                </div>
               </div>
             }
-            {/* gold price */}
-            <div className='flex flex-row py-4 justify-center'>
-              <h2 className='text-[#FCD80A] text-xl font-semibold'>Gold = ${formatNumber(price)}</h2>
-              <div className='my-auto mx-2'>
-                <Image src={'/image/icon-up.png'} alt='up' width={14} height={8} />
-              </div>
-              <h2 className='text-[#00D320] text-xl'>%{formatNumber(percentUp)}</h2>
-            </div>
+            
           </div>
           <Footer />
         </MainPanelWrapper>

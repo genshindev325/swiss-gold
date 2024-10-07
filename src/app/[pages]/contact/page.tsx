@@ -7,7 +7,8 @@ import React from 'react';
 const Home: React.FC = () => {
   return (
     <div>
-      Hello
+      Welcome to Contact Page!
+      Coming Soon!
     </div>
   )
 }

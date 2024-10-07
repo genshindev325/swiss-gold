@@ -25,7 +25,7 @@ const Swap: React.FC = () => {
           {/* container */}
           <div className='flex flex-col w-full p-2 sm:p-3 md:p-4 lg:p-6 justify-center'>
             {/* title */}
-            <div className='flex flex-row mb-4'>
+            <div className='flex flex-row mb-8 md:mb-16 mt-8 md:mt-0'>
               <div>
                 <Image src={'/image/swap-title-swap.png'} alt='nav-home' width={82} height={82} />
               </div>

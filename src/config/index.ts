@@ -1,0 +1,2 @@
+export const SERVER_URL="http://localhost:3000/";
+export const SWISS_GOLD_CONTRACT_ADDRESS="0x2C43cb4BBDBfC8044A75d2f3699d1F5627A89Aa2";
