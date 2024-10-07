@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
         <button className='flex flex-row items-center space-x-2 my-3' onClick={() => handleMenuClick('swap')}>
           {selectedMenu === 'swap' ? <div className='bg-[#EAAD2A] rounded-full w-2 h-2' /> : <div className='w-2 bg-transparent'></div>}
           <Image src={'/image/nav-swap.png'} alt='nav-home' width={30} height={30} />
-          <h2 className={`${selectedMenu === 'swap' ? 'text-[#FCD80A] font-bold text-sm' : 'text-white text-sm'} duration-500`}>SwapGOLD</h2>
+          <h2 className={`${selectedMenu === 'swap' ? 'text-[#FCD80A] font-bold text-sm' : 'text-white text-sm'} duration-500`}>Swap GOLD</h2>
         </button>
       </Link>
       <Link href={'/pages/stake'}>
