@@ -44,14 +44,19 @@ const SwapPanel: React.FC = () => {
     const fetchBalance = async function(){
       // Get token balance
       if(account && tokenFrom && provider){
-        const balance = await getERC20Balance(tokenFrom.address, account, provider);
-        setTokenBalanceFrom(balance?balance.toString() : '---');
-        if(tokenValueFrom > 0 && tokenValueFrom <= Number(balance))
-        {
-          setReadyToSwap(true);
-        }else{
-          setReadyToSwap(false);
+        try{
+          const balance = await getERC20Balance(tokenFrom.address, account, provider);
+          setTokenBalanceFrom(balance?balance.toString() : '---');
+          if(tokenValueFrom > 0 && tokenValueFrom <= Number(balance))
+          {
+            setReadyToSwap(true);
+          }else{
+            setReadyToSwap(false);
+          }
+        }catch(error){
+          toast.error(`Failed to get ${tokenFrom.symbol} token balance: ` + error);
         }
+        
       }else{
         setTokenBalanceFrom('---');
       }
@@ -84,8 +89,13 @@ const SwapPanel: React.FC = () => {
     const fetchBalance = async function(){
       // Get token balance
       if(account && tokenTo && provider){
-        const balance = await getERC20Balance(tokenTo.address, account, provider);
-        setTokenBalanceTo(balance?balance.toString() : '---');
+        try{
+          const balance = await getERC20Balance(tokenTo.address, account, provider);
+          setTokenBalanceTo(balance?balance.toString() : '---');
+        }catch(error){
+          toast.error(`Failed to get ${tokenTo.symbol} token balance: ` + error);
+        }
+        
       }else{
         setTokenBalanceTo('---');
       }
@@ -298,10 +308,12 @@ const SwapPanel: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-center my-[-10px]'>
-        <div className='w-[50px] h-[50px] bg-[#FCD80A] rounded-[50px] p-[10px] cursor-pointer'>
-          <FaArrowDown className='fill-[#3E3E3E] w-[30px] h-[30px]'/>
-        </div>
+      <div className='flex justify-center my-[-15px]'>
+        {/* <div className='w-[70px] h-[70px] bg-[#F0DC9B26] backdrop-blur-sm bg-opacity-5 rounded-[70px] p-[10px] cursor-pointer'> */}
+          <div className='w-[50px] h-[50px] bg-[#FCD80A] rounded-[50px] p-[10px] cursor-pointer'>
+            <FaArrowDown className='fill-[#3E3E3E] w-[30px] h-[30px]'/>
+          </div>
+        {/* </div> */}
       </div>
       <div className='w-full rounded-[20px] md:rounded-[32px] bg-[#F0DC9B26] bg-opacity-10 p-[12px] md:p-[24px]'>
         <div className='flex text-xs sm:text-sm md:text-md lg:text-lg'>

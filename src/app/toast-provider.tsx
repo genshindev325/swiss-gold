@@ -13,7 +13,7 @@ export default function ToastProvider({ children }: ToastProviderProps) {
   return (
     <>
       {children}
-      <ToastContainer autoClose={false} />
+      <ToastContainer />
     </>
   );
 }

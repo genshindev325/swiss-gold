@@ -106,7 +106,7 @@ const StakePanel: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-center my-[-10px]'>
+      <div className='flex justify-center my-[-15px]'>
         <div className='w-[50px] h-[50px] bg-[#FCD80A] rounded-[50px] p-[10px] cursor-pointer'>
           <FaArrowDown className='fill-[#3E3E3E] w-[30px] h-[30px]'/>
         </div>
