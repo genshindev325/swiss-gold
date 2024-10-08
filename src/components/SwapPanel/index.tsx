@@ -128,25 +128,17 @@ const SwapPanel: React.FC = () => {
       setReadyToSwap(true);
     }else{
       setReadyToSwap(false);
-    }
-    
+    }    
     setTokenValueFrom(value);
 
-    // Update the 'tokenValueTo' based on 'tokenValueFrom' and exchange rate
-    if (value) {
-      setTokenValueTo(value * swapRatio);
-    }
+    setTokenValueTo(value * swapRatio);
   };
 
-  // Function to handle input change for the "to" currency
   const handleToValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     setTokenValueTo(value);
-
-    // Update the 'tokenValueFrom' based on 'tokenValueTo' and exchange rate
-    if (value) {
-      setTokenValueFrom(value / swapRatio); // Round to 4 decimal places for display
-    }
+    
+    setTokenValueFrom(value / swapRatio);
   };
 
   const handleSwap = async () => {
