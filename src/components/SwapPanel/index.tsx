@@ -63,7 +63,6 @@ const SwapPanel: React.FC = () => {
 
   useEffect(() => {
     const fetchPrice = async () => {
-      console.log(tokenFrom);
       if(tokenFrom){
         try {
           const tokenPriceInUSD = await getTokenPriceInUSD(tokenFrom.tokenId);
@@ -155,13 +154,10 @@ const SwapPanel: React.FC = () => {
         }
 
         const goldAmountToReceive = tokenValueFrom * tokenPriceFrom / tokenPriceTo;
-        console.log(goldAmountToReceive);
 
         if(collectorContract != undefined){
           const tokenFromDecimals = await tokenFromContract.decimals();
-          console.log(tokenFromDecimals);
           const tokenFromAmountToDeposit = ethers.parseUnits(tokenValueFrom.toString(), tokenFromDecimals);
-          console.log(tokenFromAmountToDeposit);
 
           const txApprove = await tokenFromContract.approve(await collectorContract.getAddress(), tokenFromAmountToDeposit);
           let receipt = await txApprove.wait();
@@ -233,8 +229,7 @@ const SwapPanel: React.FC = () => {
             toast.error("Failed to save transaction history.");
           }
         }else{
-          toast.error("Failed to connect SwissChessGold contract.");
-          console.log("Failed to connect SwissCheeseGold contract.");
+          toast.error("Failed to connect SwissCheeseGold contract.");
         }
       }
     } catch (error) {
