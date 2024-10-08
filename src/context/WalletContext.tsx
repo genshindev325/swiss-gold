@@ -14,7 +14,7 @@ interface WalletContextType {
   provider?: ethers.BrowserProvider;
   signer?: ethers.Signer;
   account?: string;
-  connectWallet: () => Promise<void>;
+  connectWallet: () => Promise<string>;
   disconnectWallet: () => void;
 }
 
@@ -48,7 +48,7 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const connectWallet = async () => {
     if (!provider) {
       console.error('Provider is not available');
-      return;
+      return 'no-provider';
     }
 
     try {
@@ -60,7 +60,9 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       setAccount(userAddress);
     } catch (error) {
       console.error('Failed to connect wallet:', error);
+      return 'error';
     }
+    return 'success';
   };
 
   const disconnectWallet = () => {

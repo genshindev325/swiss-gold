@@ -2,11 +2,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { useWallet } from '@/context/WalletContext';
 import { abbrAddress } from '@/utils/utils';
 
 const ConnectWalletButton = () => {
     const { connectWallet, disconnectWallet, account } = useWallet();
+    const [connecting, setConnecting] = useState(false);
 
     // Create state for window width
     const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
@@ -26,15 +28,25 @@ const ConnectWalletButton = () => {
     const buttonText = windowWidth < 640 ? 'Connect' : 'Connect Wallet';
 
     const style = "h-full px-2 sm:px-10 py-1 sm:py-2  text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[103px]";
+    const styleDisabled = "h-full px-2 sm:px-10 py-1 sm:py-2  text-gray-700 font-bold text-xs sm:text-sm md:text-md lg:text-lg rounded-full bg-gradient-to-r from-[#FCD80A] to-[#FFBB01] min-w-[103px] cursor-no-allowed";
+
+    const handleConnectWallet = async () => {
+        setConnecting(true);
+        const status = await connectWallet();
+        if(status == 'no-provider'){
+            toast.info("MetaMask is not installed.");
+        }
+        setConnecting(false);
+    }
     return (
         <>
             {!account && <button
-                onClick={connectWallet}
-                // disabled={loading}
-                className={style}
+                onClick={handleConnectWallet}
+                disabled={connecting}
+                className={connecting ? styleDisabled : style}
             >
                 {/* {loading ? 'Connecting...' : 'Connect Wallet'} */}
-                { buttonText }
+                { connecting ? 'Connecting...' : buttonText }
             </button>
             }
             {account && <button

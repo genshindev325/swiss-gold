@@ -1,6 +1,8 @@
 // components/WalletConnectButton.tsx
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { useWallet } from '@/context/WalletContext';
+
 // import getProvider from '@/lib/ethers';
 // import { abbrAddress } from '@/utils/utils';
 
@@ -10,9 +12,20 @@ interface SwapButtonProps {
   }
 const SwapButton: React.FC<SwapButtonProps> = ({swapHandler, readyToSwap}) => {
     const [loading, setLoading] = useState<boolean>(false);
+    const [connectingWallet, setConnectingWallet] = useState(false);
     const { connectWallet, account } = useWallet();
     const swapButtonStyle = "w-full bg-[#FCD80A] px-[20px] py-[12px] rounded-[58px] text-center text-[#000000] text-[18px] font-[600] cursor-pointer";
     const swapButtonDisabledStyle = "w-full bg-gray-500 px-[20px] py-[12px] rounded-[58px] text-center text-gray-700 text-[18px] font-[600] cursor-not-allowed";
+
+    const handleConnectWallet = async () => {
+        setConnectingWallet(true);
+        const status = await connectWallet();
+        if(status == 'no-provider'){
+            toast.info("MetaMask is not installed.");
+        }
+        setConnectingWallet(false);
+    }
+
     const swap = async() => {
         setLoading(true);
         try{
@@ -47,12 +60,11 @@ const SwapButton: React.FC<SwapButtonProps> = ({swapHandler, readyToSwap}) => {
                 }
             </button> :
             <button
-                onClick={connectWallet}
-                // disabled={loading}
-                className={swapButtonStyle}
+                onClick={handleConnectWallet}
+                disabled={connectingWallet}
+                className={connectingWallet ? swapButtonDisabledStyle : swapButtonStyle}
             >
-                {/* { loading ? 'Connecting...' : 'Connect Wallet' } */}
-                Connect Wallet
+                { connectingWallet ? 'Connecting...' : 'Connect Wallet' }
             </button>
             }
         </div>
