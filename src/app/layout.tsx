@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import { WalletProvider } from "@/context/WalletContext";
+import ToastProvider from "./toast-provider";
 
 export default function RootLayout({
   children,
@@ -11,9 +12,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <WalletProvider>
-          {children}
-        </WalletProvider>
+        <ToastProvider>
+          <WalletProvider>
+            {children}
+          </WalletProvider>
+        </ToastProvider>
       </body>
     </html>
   );

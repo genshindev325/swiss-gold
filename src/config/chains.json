@@ -1,0 +1,8 @@
+{
+    "polygon": {
+        "chainId": 137,
+        "name": "Polygon",
+        "token": "POL",
+        "explorer": "https://polygonscan.com/tx/"
+    }
+}
