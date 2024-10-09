@@ -27,7 +27,7 @@ const Swap: React.FC = () => {
             {/* title */}
             <div className='flex flex-row mb-8 md:mb-16 mt-8 md:mt-0'>
               <div>
-                <Image src={'/image/swap-title-swap.png'} alt='nav-home' width={82} height={82} />
+                <Image src={'/image/swap-logo.png'} alt='nav-home' width={82} height={82} />
               </div>
               <div className='pl-4'>
                 <div className='text-[#FCD80A] text-[30px] md:text-[34px] leading-[26.88px] font-[700]'>

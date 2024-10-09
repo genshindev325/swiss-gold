@@ -2,79 +2,80 @@
 
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { FaCaretUp, FaCaretDown } from 'react-icons/fa6';
+// import { FaCaretUp, FaCaretDown } from 'react-icons/fa6';
 
 import MainPanelWrapper from '@/components/MainPanelWrapper'
 import Navbar from '@/components/Navbar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import StakePanel from '@/components/StakePanel';
-import GraphPanel from '@/components/GraphPanel';
-import { formatNumber } from '@/utils/utils';
-import { getTokenPriceInUsdWithChangePercentage } from '@/utils/tokens';
+// import StakePanel from '@/components/StakePanel';
+// import GraphPanel from '@/components/GraphPanel';
+// import { formatNumber } from '@/utils/utils';
+// import { getTokenPriceInUsdWithChangePercentage } from '@/utils/tokens';
 
-interface IGraphPanel {
-  positionNumber: number;
-  percentUp: number;
-  cost: number;
-  current: number;
-  PNL: string;
-}
+// interface IGraphPanel {
+//   positionNumber: number;
+//   percentUp: number;
+//   cost: number;
+//   current: number;
+//   PNL: string;
+// }
 
 const Stake: React.FC = () => {
-  const [tab, setTab] = useState<'new' | 'current'>('new');
-  const [graphData, setGraphData] = useState<IGraphPanel[]>([]);
-  const [goldPrice, setGoldPrice] = useState(0.00);
-  const [goldPriceChangePercent, setGoldPriceChangePercent] = useState(0.00);
-  useEffect(() => {
-    const fetchPrice = async () =>{
-      try {
-        const tokenId = 'tether-gold';
-        const {tokenPrice, tokenPriceChangePercent} = await getTokenPriceInUsdWithChangePercentage(tokenId);
-        setGoldPrice(tokenPrice || 0);
-        setGoldPriceChangePercent(tokenPriceChangePercent);
-      } catch (error) {
-        console.log("Failed to get gold price. Error :" + error);
-      }
-    }
-    fetchPrice();
-  }, []);
+  // const [tab, setTab] = useState<'new' | 'current'>('new');
+  // const [graphData, setGraphData] = useState<IGraphPanel[]>([]);
+  // const [goldPrice, setGoldPrice] = useState(0.00);
+  // const [goldPriceChangePercent, setGoldPriceChangePercent] = useState(0.00);
+  // useEffect(() => {
+  //   const fetchPrice = async () =>{
+  //     try {
+  //       const tokenId = 'tether-gold';
+  //       const {tokenPrice, tokenPriceChangePercent} = await getTokenPriceInUsdWithChangePercentage(tokenId);
+  //       setGoldPrice(tokenPrice || 0);
+  //       setGoldPriceChangePercent(tokenPriceChangePercent);
+  //     } catch (error) {
+  //       console.log("Failed to get gold price. Error :" + error);
+  //     }
+  //   }
+  //   fetchPrice();
+  // }, []);
 
-  useEffect(() => {
-    // will be fetched from the server...
-    setGraphData([
-      {
-        positionNumber: 1,
-        percentUp: 133,
-        cost: 1500,
-        current: 1870,
-        PNL: '+370 (%20)',
-      },
-      {
-        positionNumber: 2,
-        percentUp: 133,
-        cost: 1500,
-        current: 1870,
-        PNL: '+370 (%20)',
-      },
-      {
-        positionNumber: 3,
-        percentUp: 133,
-        cost: 1500,
-        current: 1870,
-        PNL: '+370 (%20)',
-      },
-      {
-        positionNumber: 4,
-        percentUp: 133,
-        cost: 1500,
-        current: 1870,
-        PNL: '+370 (%20)',
-      },
-    ])
-  }, []);
+  // useEffect(() => {
+  //   // will be fetched from the server...
+  //   setGraphData([
+  //     {
+  //       positionNumber: 1,
+  //       percentUp: 133,
+  //       cost: 1500,
+  //       current: 1870,
+  //       PNL: '+370 (%20)',
+  //     },
+  //     {
+  //       positionNumber: 2,
+  //       percentUp: 133,
+  //       cost: 1500,
+  //       current: 1870,
+  //       PNL: '+370 (%20)',
+  //     },
+  //     {
+  //       positionNumber: 3,
+  //       percentUp: 133,
+  //       cost: 1500,
+  //       current: 1870,
+  //       PNL: '+370 (%20)',
+  //     },
+  //     {
+  //       positionNumber: 4,
+  //       percentUp: 133,
+  //       cost: 1500,
+  //       current: 1870,
+  //       PNL: '+370 (%20)',
+  //     },
+  //   ])
+  // }, []);
 
   return (
     <div>
@@ -103,7 +104,7 @@ const Stake: React.FC = () => {
               </div>
             </div>
             {/* tab */}
-            <div className='flex flex-row justify-center px-2 space-x-4 md:space-x-6 pb-4'>
+            {/* <div className='flex flex-row justify-center px-2 space-x-4 md:space-x-6 pb-4'>
               <button
                 type='button'
                 className={`${tab === 'new' ? 'bg-[#FFD900] text-black rounded-full' : 'text-[#FFD900] bg-transparent'} rounded-full text-md font-bold px-4 py-2 duration-300 min-w-[135px]`}
@@ -118,53 +119,54 @@ const Stake: React.FC = () => {
               >
                 Current Positions
               </button>
-            </div>
+            </div> */}
             {/* body */}
-            {tab === 'new' ?
-              <div className='relative mb-20'>
-                <div className='relative flex flex-col justify-center px-2 z-20'>
-                  <StakePanel/>
-                  <div className='block lg:hidden'>
-                    <div className='flex justify-center -mt-[20px]'>
-                      <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
-                    </div>
-                  </div>
-                </div>
-                <div className='hidden lg:flex flex-row absolute top-0 left-0 w-full h-full'>
-                  <div className='content-end'>
-                    <Image src={'/image/golds.png'} alt='nav-home' width={380} height={229} />
-                  </div>
-                  <div className='ml-auto'>
+            {/* {tab === 'new' ?
+            <div className='relative mb-20'>
+              <div className='relative flex flex-col justify-center px-2 z-20'>
+                <StakePanel/>
+                <div className='block lg:hidden'>
+                  <div className='flex justify-center -mt-[20px]'>
                     <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
                   </div>
                 </div>
               </div>
-              :
-              <div className='flex flex-col items-center'>
-                <div className='grid grid-cols-2 2xl:grid-cols-4 gap-4 lg:justify-center w-full'>
-                  {graphData.map((data, index) => (
-                    <GraphPanel key={index} positionNumber={data.positionNumber} percentUp={data.percentUp} cost={data.cost} current={data.current} PNL={data.PNL} />
-                  ))}
+              <div className='hidden lg:flex flex-row absolute top-0 left-0 w-full h-full'>
+                <div className='content-end'>
+                  <Image src={'/image/golds.png'} alt='nav-home' width={380} height={229} />
                 </div>
-                {/* gold price */}
-                <div className='flex flex-row py-4 justify-center'>
-                  <h2 className='text-[#FCD80A] text-xl font-semibold'>Gold = ${formatNumber(goldPrice)}</h2>
-                  {
-                    goldPriceChangePercent >= 0 ? 
-                    (<div className='flex text-[#00D320] my-auto mx-2 items-center'>
-                      <FaCaretUp />
-                      <h2 className='text-xl'>%{formatNumber(goldPriceChangePercent)}</h2>
-                    </div> )
-                    :
-                    (<div className='flex text-[#FF0000] my-auto mx-2 items-center'>
-                      <FaCaretDown />
-                      <h2 className='text-xl'>%{formatNumber(-goldPriceChangePercent)}</h2>
-                    </div> )
-                  }
+                <div className='ml-auto'>
+                  <Image src={'/image/gold-to-sgold.png'} alt='nav-home' width={344} height={314} />
                 </div>
               </div>
-            }
-            
+            </div>
+            :
+            <div className='flex flex-col items-center'>
+              <div className='grid grid-cols-2 2xl:grid-cols-4 gap-4 lg:justify-center w-full'>
+                {graphData.map((data, index) => (
+                  <GraphPanel key={index} positionNumber={data.positionNumber} percentUp={data.percentUp} cost={data.cost} current={data.current} PNL={data.PNL} />
+                ))}
+              </div>
+              <div className='flex flex-row py-4 justify-center'>
+                <h2 className='text-[#FCD80A] text-xl font-semibold'>Gold = ${formatNumber(goldPrice)}</h2>
+                {
+                  goldPriceChangePercent >= 0 ? 
+                  (<div className='flex text-[#00D320] my-auto mx-2 items-center'>
+                    <FaCaretUp />
+                    <h2 className='text-xl'>%{formatNumber(goldPriceChangePercent)}</h2>
+                  </div> )
+                  :
+                  (<div className='flex text-[#FF0000] my-auto mx-2 items-center'>
+                    <FaCaretDown />
+                    <h2 className='text-xl'>%{formatNumber(-goldPriceChangePercent)}</h2>
+                  </div> )
+                }
+              </div>
+            </div>
+            } */}
+            <div className='flex flex-row justify-center px-2 space-x-4 md:space-x-6 pb-4 text-[#E4F4FF] text-[40px] lg:text-[80px] font-semibold h-[400px]'>
+              Coming Soon
+            </div>
           </div>
           <Footer />
         </MainPanelWrapper>
